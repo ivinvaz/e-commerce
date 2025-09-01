@@ -50,7 +50,7 @@ npm install
 2.  **Crie um arquivo `.env`** na raiz do projeto e adicione sua string de conexão com o banco de dados:
 
     ```env
-    DATABASE_URL="postgresql://ivin:sua_senha_segura@localhost:5432/DB_ECOMMERCE?schema=public"
+    DATABASE_URL="postgresql://seu_user:sua_senha_segura@localhost:5432/DB_ECOMMERCE?schema=public"
     ```
 
 3.  **Execute as migrações do Prisma** para criar as tabelas no banco de dados. Este comando irá ler o arquivo `prisma/schema.prisma` e aplicar as alterações.
