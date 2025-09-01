@@ -1,0 +1,118 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model TB_USUARIO {
+  SQ_USUARIO    Int      @id @default(autoincrement())
+  TP_USUARIO    Int      @default(0)
+  ST_USUARIO    Int
+  NO_USUARIO    String
+  EMAIL_USUARIO String   @unique
+  SENHA_USUARIO String
+  DT_CRIACAO    DateTime @default(now())
+  DT_EDITADO    DateTime @updatedAt
+
+  // Relações
+  carrinho    TB_CARRINHO?
+  tipoUsuario TB_TIPO_USUARIO?
+
+  @@map("tb_usuario")
+}
+
+model TB_TIPO_USUARIO {
+  SQ_TIPO_USUARIO      Int @id @default(autoincrement())
+  SQ_USUARIO           Int @unique
+  SQ_CATEGORIA_USUARIO Int
+
+  // Relações
+  usuario          TB_USUARIO           @relation(fields: [SQ_USUARIO], references: [SQ_USUARIO])
+  categoriaUsuario TB_CATEGORIA_USUARIO @relation(fields: [SQ_CATEGORIA_USUARIO], references: [SQ_CATEGORIA_USUARIO])
+}
+
+model TB_CATEGORIA_USUARIO {
+  SQ_CATEGORIA_USUARIO Int    @id @default(autoincrement())
+  NO_CATEGORIA         String @unique
+
+  // Relações
+  tiposUsuario TB_TIPO_USUARIO[]
+}
+
+model TB_PRODUTO {
+  SQ_PRODUTO Int      @id @default(autoincrement())
+  ST_PRODUTO Int
+  NO_PRODUTO String
+  QT_PRODUTO Int
+  DT_CRIACAO DateTime @default(now())
+  DT_EDITADO DateTime @updatedAt
+
+  // Relações
+  tiposProduto TB_TIPO_PRODUTO[]
+  quantidades  TB_QTD_PRODUTO[]
+  itens        TB_ITENS[]
+}
+
+model TB_TIPO_PRODUTO {
+  SQ_TIPO_PRODUTO      Int @id @default(autoincrement())
+  SQ_PRODUTO           Int
+  SQ_CATEGORIA_PRODUTO Int
+
+  // Relações
+  produto          TB_PRODUTO           @relation(fields: [SQ_PRODUTO], references: [SQ_PRODUTO])
+  categoriaProduto TB_CATEGORIA_PRODUTO @relation(fields: [SQ_CATEGORIA_PRODUTO], references: [SQ_CATEGORIA_PRODUTO])
+}
+
+model TB_CATEGORIA_PRODUTO {
+  SQ_CATEGORIA_PRODUTO Int    @id @default(autoincrement())
+  NO_CATEGORIA         String @unique
+
+  // Relações
+  tiposProduto TB_TIPO_PRODUTO[]
+}
+
+model TB_QTD_PRODUTO {
+  SQ_QTD_PRODUTO     Int @id @default(autoincrement())
+  SQ_PRODUTO         Int
+  SQ_TAMANHO_PRODUTO Int
+  QTD_PRODUTO        Int
+
+  // Relações
+  produto        TB_PRODUTO         @relation(fields: [SQ_PRODUTO], references: [SQ_PRODUTO])
+  tamanhoProduto TB_TAMANHO_PRODUTO @relation(fields: [SQ_TAMANHO_PRODUTO], references: [SQ_TAMANHO_PRODUTO])
+}
+
+model TB_TAMANHO_PRODUTO {
+  SQ_TAMANHO_PRODUTO Int    @id @default(autoincrement())
+  NO_CATEGORIA       String
+
+  // Relações
+  qtdProdutos TB_QTD_PRODUTO[]
+  itens       TB_ITENS[]
+}
+
+model TB_CARRINHO {
+  SQ_CARRINHO Int @id @default(autoincrement())
+  SQ_USUARIO  Int @unique
+
+  // Relações
+  usuario TB_USUARIO @relation(fields: [SQ_USUARIO], references: [SQ_USUARIO])
+  itens   TB_ITENS[]
+}
+
+model TB_ITENS {
+  SQ_ITENS           Int @id @default(autoincrement())
+  SQ_CARRINHO        Int
+  SQ_PRODUTO         Int
+  SQ_TAMANHO_PRODUTO Int
+  QTD_PRODUTO        Int
+
+  // Relações
+  carrinho       TB_CARRINHO        @relation(fields: [SQ_CARRINHO], references: [SQ_CARRINHO])
+  produto        TB_PRODUTO         @relation(fields: [SQ_PRODUTO], references: [SQ_PRODUTO])
+  tamanhoProduto TB_TAMANHO_PRODUTO @relation(fields: [SQ_TAMANHO_PRODUTO], references: [SQ_TAMANHO_PRODUTO])
+}
