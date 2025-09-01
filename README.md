@@ -18,8 +18,8 @@ Certifique-se de que você tem as seguintes ferramentas instaladas:
 Primeiro, clone o repositório e navegue até a pasta do projeto.
 
 ```bash
-git clone [URL_DO_SEU_REPOSITORIO]
-cd [NOME_DA_PASTA]
+git clone https://github.com/ivinvaz/e-commerce.git
+cd e-commerce
 ```
 
 Em seguida, instale as dependências do Node.js:
