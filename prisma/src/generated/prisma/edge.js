@@ -193,7 +193,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/home/ivin/Code/git/e-commerce/prisma/src/generated/prisma",
+      "value": "D:\\Code\\e-commerce\\prisma\\src\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -202,16 +202,16 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "debian-openssl-3.0.x",
+        "value": "windows",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/home/ivin/Code/git/e-commerce/prisma/schema.prisma",
+    "sourceFilePath": "D:\\Code\\e-commerce\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../../../.env"
   },
   "relativePath": "../../..",
