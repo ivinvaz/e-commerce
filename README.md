@@ -1,85 +1,88 @@
-# E-commerce Full-Stack
+# Projeto E-commerce com Next.js e PostgreSQL
 
-Este é um projeto de e-commerce full-stack construído com **Next.js**, **PostgreSQL** e **Prisma**.
+Bem-vindo ao projeto e-commerce full-stack! Este guia de instalação rápida ajudará novos desenvolvedores a configurar o ambiente de desenvolvimento e começar a trabalhar.
 
-## Como Iniciar o Projeto
+---
 
-Siga os passos abaixo para configurar e rodar o projeto em seu ambiente de desenvolvimento.
+## 🚀 Tecnologias Utilizadas
 
-### Pré-requisitos
+-   **Next.js 14+**: Framework para o frontend e rotas de API.
+-   **PostgreSQL**: Banco de dados relacional.
+-   **Prisma**: ORM (Object-Relational Mapper) para interagir com o banco de dados.
+-   **Bcrypt.js**: Biblioteca para criptografia de senhas.
 
-Certifique-se de que você tem as seguintes ferramentas instaladas:
+---
 
-  * [**Node.js**](https://nodejs.org/) (versão LTS)
-  * [**PostgreSQL**](https://www.postgresql.org/)
+## 💻 Configuração do Ambiente de Desenvolvimento
 
-### 1\. Configuração do Ambiente
+### 1. Pré-requisitos
 
-Primeiro, clone o repositório e navegue até a pasta do projeto.
+Certifique-se de que você tem as seguintes ferramentas instaladas na sua máquina:
 
-```bash
-git clone https://github.com/ivinvaz/e-commerce.git
-cd e-commerce
-```
+-   **Node.js**: [Link para download](https://nodejs.org/en/download/) (versão 18.x ou superior recomendada).
+-   **npm**: Gerenciador de pacotes do Node.js (geralmente instalado com o Node.js).
+-   **Git**: [Link para download](https://git-scm.com/downloads).
+-   **PostgreSQL**: Servidor de banco de dados. Siga as instruções de instalação no site oficial do [PostgreSQL](https://www.postgresql.org/download/).
 
-Em seguida, instale as dependências do Node.js:
+### 2. Configuração do Banco de Dados
 
-```bash
-npm install
-```
-
-### 2\. Configuração do Banco de Dados
-
-1.  **Crie um usuário e um banco de dados no PostgreSQL** para o projeto. Se você estiver usando o método padrão de autenticação, entre no `psql` como superusuário e execute os comandos:
+1.  **Crie um usuário e um banco de dados no PostgreSQL**.
+    Abra o terminal e use o cliente `psql` para criar o banco de dados do projeto.
 
     ```bash
-    sudo -i -u postgres
-    psql
-    ```
+    # Se necessário, conecte-se ao servidor PostgreSQL
+    psql -U postgres
 
-    ```sql
-    CREATE USER ivin WITH PASSWORD 'sua_senha_segura';
-    CREATE DATABASE "DB_ECOMMERCE";
-    GRANT ALL PRIVILEGES ON DATABASE "DB_ECOMMERCE" TO ivin;
+    # Crie o banco de dados para o projeto
+    CREATE DATABASE "ecommerce-db";
+
+    # Saia do psql
     \q
-    exit
     ```
 
-    *Certifique-se de usar sua senha segura e o nome de usuário/banco de dados que você definiu.*
+    *Se você estiver no Windows e receber um erro de "comando não encontrado", adicione a pasta `bin` da sua instalação do PostgreSQL à variável de ambiente **PATH** do sistema.*
 
-2.  **Crie um arquivo `.env`** na raiz do projeto e adicione sua string de conexão com o banco de dados:
+2.  **Configure o arquivo de variáveis de ambiente**.
+    Na raiz do projeto, crie um arquivo chamado `.env` e adicione a URL de conexão com o banco de dados.
 
-    ```env
-    DATABASE_URL="postgresql://seu_user:sua_senha_segura@localhost:5432/DB_ECOMMERCE?schema=public"
+    ```ini
+    # .env
+    DATABASE_URL="postgresql://postgres:sua-senha-aqui@localhost:5432/ecommerce-db?schema=public"
     ```
+    *Substitua `sua-senha-aqui` pela senha que você configurou para o usuário `postgres` durante a instalação.*
 
-3.  **Execute as migrações do Prisma** para criar as tabelas no banco de dados. Este comando irá ler o arquivo `prisma/schema.prisma` e aplicar as alterações.
+### 3. Instalação do Projeto
+
+1.  **Clone o repositório** e navegue até a pasta do projeto.
 
     ```bash
-    npx prisma migrate dev --name init
+    git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
+    cd seu-repositorio
     ```
 
-### 3\. Rodando a Aplicação
+2.  **Instale as dependências** do projeto.
 
-Depois que o banco de dados estiver configurado, inicie o servidor de desenvolvimento do Next.js:
+    ```bash
+    npm install
+    ```
 
-```bash
-npm run dev
-```
+3.  **Gere o cliente Prisma** e aplique as migrações no banco de dados.
+    Este comando lê o schema (`prisma/schema.prisma`) e cria as tabelas no seu banco de dados.
 
-O projeto estará disponível em `http://localhost:3000`.
+    ```bash
+    npx prisma migrate dev --name init_schema
+    ```
 
------
+    *Se você precisar gerar novamente o cliente Prisma após alterar o schema, use apenas o comando `npx prisma generate`.*
 
-### Estrutura do Projeto
+---
 
-Este projeto segue a estrutura padrão do Next.js, com as seguintes pastas e arquivos principais:
+## 🚀 Como Rodar o Projeto
 
-  * `src/app`: Páginas e rotas da aplicação (usando o App Router).
-  * `src/pages/api`: Endpoints da API para o backend.
-  * `prisma/schema.prisma`: Arquivo de esquema do banco de dados (modelos e relações).
-  * `prisma/migrations`: Arquivos de migração gerados automaticamente pelo Prisma.
+1.  **Inicie o servidor de desenvolvimento** do Next.js.
 
------
+    ```bash
+    npm run dev
+    ```
 
-Espero que este `README` seja útil para você\! Ele servirá como um guia claro para qualquer pessoa que queira contribuir ou rodar o seu projeto.
+2.  **Acesse o projeto** no seu navegador em `http://localhost:3000`.
