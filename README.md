@@ -79,7 +79,15 @@ Certifique-se de que você tem as seguintes ferramentas instaladas na sua máqui
 
 ## 🚀 Como Rodar o Projeto
 
+2.  **Crie os dados mockados** do banco de dados.
+
+
+    ```bash
+    npx prisma db seed
+    ```
+
 1.  **Inicie o servidor de desenvolvimento** do Next.js.
+
 
     ```bash
     npm run dev
