@@ -5185,20 +5185,17 @@ export namespace Prisma {
   export type TB_PRODUTOAvgAggregateOutputType = {
     SQ_PRODUTO: number | null
     ST_PRODUTO: number | null
-    QT_PRODUTO: number | null
   }
 
   export type TB_PRODUTOSumAggregateOutputType = {
     SQ_PRODUTO: number | null
     ST_PRODUTO: number | null
-    QT_PRODUTO: number | null
   }
 
   export type TB_PRODUTOMinAggregateOutputType = {
     SQ_PRODUTO: number | null
     ST_PRODUTO: number | null
     NO_PRODUTO: string | null
-    QT_PRODUTO: number | null
     DT_CRIACAO: Date | null
     DT_EDITADO: Date | null
   }
@@ -5207,7 +5204,6 @@ export namespace Prisma {
     SQ_PRODUTO: number | null
     ST_PRODUTO: number | null
     NO_PRODUTO: string | null
-    QT_PRODUTO: number | null
     DT_CRIACAO: Date | null
     DT_EDITADO: Date | null
   }
@@ -5216,7 +5212,6 @@ export namespace Prisma {
     SQ_PRODUTO: number
     ST_PRODUTO: number
     NO_PRODUTO: number
-    QT_PRODUTO: number
     DT_CRIACAO: number
     DT_EDITADO: number
     _all: number
@@ -5226,20 +5221,17 @@ export namespace Prisma {
   export type TB_PRODUTOAvgAggregateInputType = {
     SQ_PRODUTO?: true
     ST_PRODUTO?: true
-    QT_PRODUTO?: true
   }
 
   export type TB_PRODUTOSumAggregateInputType = {
     SQ_PRODUTO?: true
     ST_PRODUTO?: true
-    QT_PRODUTO?: true
   }
 
   export type TB_PRODUTOMinAggregateInputType = {
     SQ_PRODUTO?: true
     ST_PRODUTO?: true
     NO_PRODUTO?: true
-    QT_PRODUTO?: true
     DT_CRIACAO?: true
     DT_EDITADO?: true
   }
@@ -5248,7 +5240,6 @@ export namespace Prisma {
     SQ_PRODUTO?: true
     ST_PRODUTO?: true
     NO_PRODUTO?: true
-    QT_PRODUTO?: true
     DT_CRIACAO?: true
     DT_EDITADO?: true
   }
@@ -5257,7 +5248,6 @@ export namespace Prisma {
     SQ_PRODUTO?: true
     ST_PRODUTO?: true
     NO_PRODUTO?: true
-    QT_PRODUTO?: true
     DT_CRIACAO?: true
     DT_EDITADO?: true
     _all?: true
@@ -5353,7 +5343,6 @@ export namespace Prisma {
     SQ_PRODUTO: number
     ST_PRODUTO: number
     NO_PRODUTO: string
-    QT_PRODUTO: number
     DT_CRIACAO: Date
     DT_EDITADO: Date
     _count: TB_PRODUTOCountAggregateOutputType | null
@@ -5381,7 +5370,6 @@ export namespace Prisma {
     SQ_PRODUTO?: boolean
     ST_PRODUTO?: boolean
     NO_PRODUTO?: boolean
-    QT_PRODUTO?: boolean
     DT_CRIACAO?: boolean
     DT_EDITADO?: boolean
     tiposProduto?: boolean | TB_PRODUTO$tiposProdutoArgs<ExtArgs>
@@ -5394,7 +5382,6 @@ export namespace Prisma {
     SQ_PRODUTO?: boolean
     ST_PRODUTO?: boolean
     NO_PRODUTO?: boolean
-    QT_PRODUTO?: boolean
     DT_CRIACAO?: boolean
     DT_EDITADO?: boolean
   }, ExtArgs["result"]["tB_PRODUTO"]>
@@ -5403,7 +5390,6 @@ export namespace Prisma {
     SQ_PRODUTO?: boolean
     ST_PRODUTO?: boolean
     NO_PRODUTO?: boolean
-    QT_PRODUTO?: boolean
     DT_CRIACAO?: boolean
     DT_EDITADO?: boolean
   }, ExtArgs["result"]["tB_PRODUTO"]>
@@ -5412,12 +5398,11 @@ export namespace Prisma {
     SQ_PRODUTO?: boolean
     ST_PRODUTO?: boolean
     NO_PRODUTO?: boolean
-    QT_PRODUTO?: boolean
     DT_CRIACAO?: boolean
     DT_EDITADO?: boolean
   }
 
-  export type TB_PRODUTOOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"SQ_PRODUTO" | "ST_PRODUTO" | "NO_PRODUTO" | "QT_PRODUTO" | "DT_CRIACAO" | "DT_EDITADO", ExtArgs["result"]["tB_PRODUTO"]>
+  export type TB_PRODUTOOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"SQ_PRODUTO" | "ST_PRODUTO" | "NO_PRODUTO" | "DT_CRIACAO" | "DT_EDITADO", ExtArgs["result"]["tB_PRODUTO"]>
   export type TB_PRODUTOInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     tiposProduto?: boolean | TB_PRODUTO$tiposProdutoArgs<ExtArgs>
     quantidades?: boolean | TB_PRODUTO$quantidadesArgs<ExtArgs>
@@ -5438,7 +5423,6 @@ export namespace Prisma {
       SQ_PRODUTO: number
       ST_PRODUTO: number
       NO_PRODUTO: string
-      QT_PRODUTO: number
       DT_CRIACAO: Date
       DT_EDITADO: Date
     }, ExtArgs["result"]["tB_PRODUTO"]>
@@ -5870,7 +5854,6 @@ export namespace Prisma {
     readonly SQ_PRODUTO: FieldRef<"TB_PRODUTO", 'Int'>
     readonly ST_PRODUTO: FieldRef<"TB_PRODUTO", 'Int'>
     readonly NO_PRODUTO: FieldRef<"TB_PRODUTO", 'String'>
-    readonly QT_PRODUTO: FieldRef<"TB_PRODUTO", 'Int'>
     readonly DT_CRIACAO: FieldRef<"TB_PRODUTO", 'DateTime'>
     readonly DT_EDITADO: FieldRef<"TB_PRODUTO", 'DateTime'>
   }
@@ -12950,7 +12933,6 @@ export namespace Prisma {
     SQ_PRODUTO: 'SQ_PRODUTO',
     ST_PRODUTO: 'ST_PRODUTO',
     NO_PRODUTO: 'NO_PRODUTO',
-    QT_PRODUTO: 'QT_PRODUTO',
     DT_CRIACAO: 'DT_CRIACAO',
     DT_EDITADO: 'DT_EDITADO'
   };
@@ -13266,7 +13248,6 @@ export namespace Prisma {
     SQ_PRODUTO?: IntFilter<"TB_PRODUTO"> | number
     ST_PRODUTO?: IntFilter<"TB_PRODUTO"> | number
     NO_PRODUTO?: StringFilter<"TB_PRODUTO"> | string
-    QT_PRODUTO?: IntFilter<"TB_PRODUTO"> | number
     DT_CRIACAO?: DateTimeFilter<"TB_PRODUTO"> | Date | string
     DT_EDITADO?: DateTimeFilter<"TB_PRODUTO"> | Date | string
     tiposProduto?: TB_TIPO_PRODUTOListRelationFilter
@@ -13278,7 +13259,6 @@ export namespace Prisma {
     SQ_PRODUTO?: SortOrder
     ST_PRODUTO?: SortOrder
     NO_PRODUTO?: SortOrder
-    QT_PRODUTO?: SortOrder
     DT_CRIACAO?: SortOrder
     DT_EDITADO?: SortOrder
     tiposProduto?: TB_TIPO_PRODUTOOrderByRelationAggregateInput
@@ -13293,7 +13273,6 @@ export namespace Prisma {
     NOT?: TB_PRODUTOWhereInput | TB_PRODUTOWhereInput[]
     ST_PRODUTO?: IntFilter<"TB_PRODUTO"> | number
     NO_PRODUTO?: StringFilter<"TB_PRODUTO"> | string
-    QT_PRODUTO?: IntFilter<"TB_PRODUTO"> | number
     DT_CRIACAO?: DateTimeFilter<"TB_PRODUTO"> | Date | string
     DT_EDITADO?: DateTimeFilter<"TB_PRODUTO"> | Date | string
     tiposProduto?: TB_TIPO_PRODUTOListRelationFilter
@@ -13305,7 +13284,6 @@ export namespace Prisma {
     SQ_PRODUTO?: SortOrder
     ST_PRODUTO?: SortOrder
     NO_PRODUTO?: SortOrder
-    QT_PRODUTO?: SortOrder
     DT_CRIACAO?: SortOrder
     DT_EDITADO?: SortOrder
     _count?: TB_PRODUTOCountOrderByAggregateInput
@@ -13322,7 +13300,6 @@ export namespace Prisma {
     SQ_PRODUTO?: IntWithAggregatesFilter<"TB_PRODUTO"> | number
     ST_PRODUTO?: IntWithAggregatesFilter<"TB_PRODUTO"> | number
     NO_PRODUTO?: StringWithAggregatesFilter<"TB_PRODUTO"> | string
-    QT_PRODUTO?: IntWithAggregatesFilter<"TB_PRODUTO"> | number
     DT_CRIACAO?: DateTimeWithAggregatesFilter<"TB_PRODUTO"> | Date | string
     DT_EDITADO?: DateTimeWithAggregatesFilter<"TB_PRODUTO"> | Date | string
   }
@@ -13786,7 +13763,6 @@ export namespace Prisma {
   export type TB_PRODUTOCreateInput = {
     ST_PRODUTO: number
     NO_PRODUTO: string
-    QT_PRODUTO: number
     DT_CRIACAO?: Date | string
     DT_EDITADO?: Date | string
     tiposProduto?: TB_TIPO_PRODUTOCreateNestedManyWithoutProdutoInput
@@ -13798,7 +13774,6 @@ export namespace Prisma {
     SQ_PRODUTO?: number
     ST_PRODUTO: number
     NO_PRODUTO: string
-    QT_PRODUTO: number
     DT_CRIACAO?: Date | string
     DT_EDITADO?: Date | string
     tiposProduto?: TB_TIPO_PRODUTOUncheckedCreateNestedManyWithoutProdutoInput
@@ -13809,7 +13784,6 @@ export namespace Prisma {
   export type TB_PRODUTOUpdateInput = {
     ST_PRODUTO?: IntFieldUpdateOperationsInput | number
     NO_PRODUTO?: StringFieldUpdateOperationsInput | string
-    QT_PRODUTO?: IntFieldUpdateOperationsInput | number
     DT_CRIACAO?: DateTimeFieldUpdateOperationsInput | Date | string
     DT_EDITADO?: DateTimeFieldUpdateOperationsInput | Date | string
     tiposProduto?: TB_TIPO_PRODUTOUpdateManyWithoutProdutoNestedInput
@@ -13821,7 +13795,6 @@ export namespace Prisma {
     SQ_PRODUTO?: IntFieldUpdateOperationsInput | number
     ST_PRODUTO?: IntFieldUpdateOperationsInput | number
     NO_PRODUTO?: StringFieldUpdateOperationsInput | string
-    QT_PRODUTO?: IntFieldUpdateOperationsInput | number
     DT_CRIACAO?: DateTimeFieldUpdateOperationsInput | Date | string
     DT_EDITADO?: DateTimeFieldUpdateOperationsInput | Date | string
     tiposProduto?: TB_TIPO_PRODUTOUncheckedUpdateManyWithoutProdutoNestedInput
@@ -13833,7 +13806,6 @@ export namespace Prisma {
     SQ_PRODUTO?: number
     ST_PRODUTO: number
     NO_PRODUTO: string
-    QT_PRODUTO: number
     DT_CRIACAO?: Date | string
     DT_EDITADO?: Date | string
   }
@@ -13841,7 +13813,6 @@ export namespace Prisma {
   export type TB_PRODUTOUpdateManyMutationInput = {
     ST_PRODUTO?: IntFieldUpdateOperationsInput | number
     NO_PRODUTO?: StringFieldUpdateOperationsInput | string
-    QT_PRODUTO?: IntFieldUpdateOperationsInput | number
     DT_CRIACAO?: DateTimeFieldUpdateOperationsInput | Date | string
     DT_EDITADO?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -13850,7 +13821,6 @@ export namespace Prisma {
     SQ_PRODUTO?: IntFieldUpdateOperationsInput | number
     ST_PRODUTO?: IntFieldUpdateOperationsInput | number
     NO_PRODUTO?: StringFieldUpdateOperationsInput | string
-    QT_PRODUTO?: IntFieldUpdateOperationsInput | number
     DT_CRIACAO?: DateTimeFieldUpdateOperationsInput | Date | string
     DT_EDITADO?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -14346,7 +14316,6 @@ export namespace Prisma {
     SQ_PRODUTO?: SortOrder
     ST_PRODUTO?: SortOrder
     NO_PRODUTO?: SortOrder
-    QT_PRODUTO?: SortOrder
     DT_CRIACAO?: SortOrder
     DT_EDITADO?: SortOrder
   }
@@ -14354,14 +14323,12 @@ export namespace Prisma {
   export type TB_PRODUTOAvgOrderByAggregateInput = {
     SQ_PRODUTO?: SortOrder
     ST_PRODUTO?: SortOrder
-    QT_PRODUTO?: SortOrder
   }
 
   export type TB_PRODUTOMaxOrderByAggregateInput = {
     SQ_PRODUTO?: SortOrder
     ST_PRODUTO?: SortOrder
     NO_PRODUTO?: SortOrder
-    QT_PRODUTO?: SortOrder
     DT_CRIACAO?: SortOrder
     DT_EDITADO?: SortOrder
   }
@@ -14370,7 +14337,6 @@ export namespace Prisma {
     SQ_PRODUTO?: SortOrder
     ST_PRODUTO?: SortOrder
     NO_PRODUTO?: SortOrder
-    QT_PRODUTO?: SortOrder
     DT_CRIACAO?: SortOrder
     DT_EDITADO?: SortOrder
   }
@@ -14378,7 +14344,6 @@ export namespace Prisma {
   export type TB_PRODUTOSumOrderByAggregateInput = {
     SQ_PRODUTO?: SortOrder
     ST_PRODUTO?: SortOrder
-    QT_PRODUTO?: SortOrder
   }
 
   export type TB_PRODUTOScalarRelationFilter = {
@@ -15579,7 +15544,6 @@ export namespace Prisma {
   export type TB_PRODUTOCreateWithoutTiposProdutoInput = {
     ST_PRODUTO: number
     NO_PRODUTO: string
-    QT_PRODUTO: number
     DT_CRIACAO?: Date | string
     DT_EDITADO?: Date | string
     quantidades?: TB_QTD_PRODUTOCreateNestedManyWithoutProdutoInput
@@ -15590,7 +15554,6 @@ export namespace Prisma {
     SQ_PRODUTO?: number
     ST_PRODUTO: number
     NO_PRODUTO: string
-    QT_PRODUTO: number
     DT_CRIACAO?: Date | string
     DT_EDITADO?: Date | string
     quantidades?: TB_QTD_PRODUTOUncheckedCreateNestedManyWithoutProdutoInput
@@ -15630,7 +15593,6 @@ export namespace Prisma {
   export type TB_PRODUTOUpdateWithoutTiposProdutoInput = {
     ST_PRODUTO?: IntFieldUpdateOperationsInput | number
     NO_PRODUTO?: StringFieldUpdateOperationsInput | string
-    QT_PRODUTO?: IntFieldUpdateOperationsInput | number
     DT_CRIACAO?: DateTimeFieldUpdateOperationsInput | Date | string
     DT_EDITADO?: DateTimeFieldUpdateOperationsInput | Date | string
     quantidades?: TB_QTD_PRODUTOUpdateManyWithoutProdutoNestedInput
@@ -15641,7 +15603,6 @@ export namespace Prisma {
     SQ_PRODUTO?: IntFieldUpdateOperationsInput | number
     ST_PRODUTO?: IntFieldUpdateOperationsInput | number
     NO_PRODUTO?: StringFieldUpdateOperationsInput | string
-    QT_PRODUTO?: IntFieldUpdateOperationsInput | number
     DT_CRIACAO?: DateTimeFieldUpdateOperationsInput | Date | string
     DT_EDITADO?: DateTimeFieldUpdateOperationsInput | Date | string
     quantidades?: TB_QTD_PRODUTOUncheckedUpdateManyWithoutProdutoNestedInput
@@ -15706,7 +15667,6 @@ export namespace Prisma {
   export type TB_PRODUTOCreateWithoutQuantidadesInput = {
     ST_PRODUTO: number
     NO_PRODUTO: string
-    QT_PRODUTO: number
     DT_CRIACAO?: Date | string
     DT_EDITADO?: Date | string
     tiposProduto?: TB_TIPO_PRODUTOCreateNestedManyWithoutProdutoInput
@@ -15717,7 +15677,6 @@ export namespace Prisma {
     SQ_PRODUTO?: number
     ST_PRODUTO: number
     NO_PRODUTO: string
-    QT_PRODUTO: number
     DT_CRIACAO?: Date | string
     DT_EDITADO?: Date | string
     tiposProduto?: TB_TIPO_PRODUTOUncheckedCreateNestedManyWithoutProdutoInput
@@ -15759,7 +15718,6 @@ export namespace Prisma {
   export type TB_PRODUTOUpdateWithoutQuantidadesInput = {
     ST_PRODUTO?: IntFieldUpdateOperationsInput | number
     NO_PRODUTO?: StringFieldUpdateOperationsInput | string
-    QT_PRODUTO?: IntFieldUpdateOperationsInput | number
     DT_CRIACAO?: DateTimeFieldUpdateOperationsInput | Date | string
     DT_EDITADO?: DateTimeFieldUpdateOperationsInput | Date | string
     tiposProduto?: TB_TIPO_PRODUTOUpdateManyWithoutProdutoNestedInput
@@ -15770,7 +15728,6 @@ export namespace Prisma {
     SQ_PRODUTO?: IntFieldUpdateOperationsInput | number
     ST_PRODUTO?: IntFieldUpdateOperationsInput | number
     NO_PRODUTO?: StringFieldUpdateOperationsInput | string
-    QT_PRODUTO?: IntFieldUpdateOperationsInput | number
     DT_CRIACAO?: DateTimeFieldUpdateOperationsInput | Date | string
     DT_EDITADO?: DateTimeFieldUpdateOperationsInput | Date | string
     tiposProduto?: TB_TIPO_PRODUTOUncheckedUpdateManyWithoutProdutoNestedInput
@@ -15993,7 +15950,6 @@ export namespace Prisma {
   export type TB_PRODUTOCreateWithoutItensInput = {
     ST_PRODUTO: number
     NO_PRODUTO: string
-    QT_PRODUTO: number
     DT_CRIACAO?: Date | string
     DT_EDITADO?: Date | string
     tiposProduto?: TB_TIPO_PRODUTOCreateNestedManyWithoutProdutoInput
@@ -16004,7 +15960,6 @@ export namespace Prisma {
     SQ_PRODUTO?: number
     ST_PRODUTO: number
     NO_PRODUTO: string
-    QT_PRODUTO: number
     DT_CRIACAO?: Date | string
     DT_EDITADO?: Date | string
     tiposProduto?: TB_TIPO_PRODUTOUncheckedCreateNestedManyWithoutProdutoInput
@@ -16066,7 +16021,6 @@ export namespace Prisma {
   export type TB_PRODUTOUpdateWithoutItensInput = {
     ST_PRODUTO?: IntFieldUpdateOperationsInput | number
     NO_PRODUTO?: StringFieldUpdateOperationsInput | string
-    QT_PRODUTO?: IntFieldUpdateOperationsInput | number
     DT_CRIACAO?: DateTimeFieldUpdateOperationsInput | Date | string
     DT_EDITADO?: DateTimeFieldUpdateOperationsInput | Date | string
     tiposProduto?: TB_TIPO_PRODUTOUpdateManyWithoutProdutoNestedInput
@@ -16077,7 +16031,6 @@ export namespace Prisma {
     SQ_PRODUTO?: IntFieldUpdateOperationsInput | number
     ST_PRODUTO?: IntFieldUpdateOperationsInput | number
     NO_PRODUTO?: StringFieldUpdateOperationsInput | string
-    QT_PRODUTO?: IntFieldUpdateOperationsInput | number
     DT_CRIACAO?: DateTimeFieldUpdateOperationsInput | Date | string
     DT_EDITADO?: DateTimeFieldUpdateOperationsInput | Date | string
     tiposProduto?: TB_TIPO_PRODUTOUncheckedUpdateManyWithoutProdutoNestedInput

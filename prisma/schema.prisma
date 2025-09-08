@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "./src/generated/prisma"
 }
 
 datasource db {
@@ -37,7 +36,7 @@ model TB_TIPO_USUARIO {
 
 model TB_CATEGORIA_USUARIO {
   SQ_CATEGORIA_USUARIO   Int                  @id @default(autoincrement())
-  NO_CATEGORIA           String               @unique
+  NO_CATEGORIA           String               @unique @db.VarChar(100) @map("NO_CATEGORIA")
 
   // Relações
   tiposUsuario           TB_TIPO_USUARIO[]
@@ -47,7 +46,6 @@ model TB_PRODUTO {
   SQ_PRODUTO    Int               @id @default(autoincrement())
   ST_PRODUTO    Int
   NO_PRODUTO    String
-  QT_PRODUTO    Int
   DT_CRIACAO    DateTime          @default(now())
   DT_EDITADO    DateTime          @updatedAt
 
@@ -69,7 +67,7 @@ model TB_TIPO_PRODUTO {
 
 model TB_CATEGORIA_PRODUTO {
   SQ_CATEGORIA_PRODUTO Int                  @id @default(autoincrement())
-  NO_CATEGORIA         String               @unique
+  NO_CATEGORIA         String               @unique @db.VarChar(100) @map("NO_CATEGORIA")
 
   // Relações
   tiposProduto         TB_TIPO_PRODUTO[]
@@ -88,7 +86,7 @@ model TB_QTD_PRODUTO {
 
 model TB_TAMANHO_PRODUTO {
   SQ_TAMANHO_PRODUTO Int                  @id @default(autoincrement())
-  NO_CATEGORIA       String
+  NO_CATEGORIA       String               @unique @db.VarChar(100) @map("NO_CATEGORIA")
 
   // Relações
   qtdProdutos        TB_QTD_PRODUTO[]

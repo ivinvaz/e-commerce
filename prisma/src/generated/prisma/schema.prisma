@@ -47,7 +47,6 @@ model TB_PRODUTO {
   SQ_PRODUTO Int      @id @default(autoincrement())
   ST_PRODUTO Int
   NO_PRODUTO String
-  QT_PRODUTO Int
   DT_CRIACAO DateTime @default(now())
   DT_EDITADO DateTime @updatedAt
 
