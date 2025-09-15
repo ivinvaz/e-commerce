@@ -1,8 +1,6 @@
 // Importa as bibliotecas necessárias
 import { NextRequest, NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { prisma } from '@/lib/prisma';
 
 // Rota para criar uma nova categoria (POST)
 export async function POST(req: NextRequest) {
