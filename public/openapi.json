@@ -1,0 +1,845 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de E-commerce",
+    "description": "Documentação da API REST para gerenciamento de um e-commerce, incluindo carrinho, produtos, usuários e estoque.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api"
+    }
+  ],
+  "paths": {
+    "/carrinho": {
+      "post": {
+        "summary": "Cria um novo carrinho",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "EMAIL_USUARIO": {
+                    "type": "string",
+                    "example": "usuario@email.com"
+                  }
+                },
+                "required": [
+                  "EMAIL_USUARIO"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Carrinho criado com sucesso."
+          }
+        }
+      },
+      "get": {
+        "summary": "Lista todos os carrinhos",
+        "responses": {
+          "200": {
+            "description": "Lista de carrinhos retornada com sucesso."
+          }
+        }
+      }
+    },
+    "/carrinho/{id}": {
+      "get": {
+        "summary": "Lista um carrinho com seus itens",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do carrinho"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Carrinho e itens retornados com sucesso."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleta um carrinho",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do carrinho a ser deletado"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Carrinho deletado com sucesso."
+          }
+        }
+      }
+    },
+    "/item": {
+      "post": {
+        "summary": "Adiciona um item ao carrinho",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "EMAIL_USUARIO": {
+                    "type": "string",
+                    "example": "usuario@email.com"
+                  },
+                  "SQ_PRODUTO": {
+                    "type": "integer"
+                  },
+                  "SQ_TAMANHO_PRODUTO": {
+                    "type": "integer"
+                  },
+                  "QTD_PRODUTO": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "EMAIL_USUARIO",
+                  "SQ_PRODUTO",
+                  "SQ_TAMANHO_PRODUTO",
+                  "QTD_PRODUTO"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Item adicionado ao carrinho com sucesso."
+          }
+        }
+      }
+    },
+    "/item/{id}": {
+      "put": {
+        "summary": "Atualiza um item do carrinho",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do item a ser atualizado"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "SQ_PRODUTO": {
+                    "type": "integer"
+                  },
+                  "SQ_TAMANHO_PRODUTO": {
+                    "type": "integer"
+                  },
+                  "QTD_PRODUTO": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "SQ_PRODUTO",
+                  "SQ_TAMANHO_PRODUTO",
+                  "QTD_PRODUTO"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Item do carrinho atualizado com sucesso."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleta um item do carrinho",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do item a ser deletado"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Item do carrinho deletado com sucesso."
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "Autentica um usuário",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "EMAIL_USUARIO": {
+                    "type": "string"
+                  },
+                  "SENHA_USUARIO": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "EMAIL_USUARIO",
+                  "SENHA_USUARIO"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login realizado com sucesso."
+          },
+          "401": {
+            "description": "Credenciais inválidas."
+          }
+        }
+      }
+    },
+    "/products": {
+      "get": {
+        "summary": "Lista todos os produtos",
+        "responses": {
+          "200": {
+            "description": "Lista de produtos retornada com sucesso."
+          }
+        }
+      },
+      "post": {
+        "summary": "Adiciona um produto",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "NO_PRODUTO": {
+                    "type": "string"
+                  },
+                  "ST_PRODUTO": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "NO_PRODUTO",
+                  "ST_PRODUTO"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Produto adicionado com sucesso."
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "summary": "Lista um produto",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do produto"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Produto retornado com sucesso."
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualiza um produto",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do produto a ser atualizado"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "NO_PRODUTO": {
+                    "type": "string"
+                  },
+                  "ST_PRODUTO": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "NO_PRODUTO",
+                  "ST_PRODUTO"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Produto atualizado com sucesso."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleta um produto",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do produto a ser deletado"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Produto deletado com sucesso."
+          }
+        }
+      }
+    },
+    "/products_cat": {
+      "get": {
+        "summary": "Lista todas as categorias de produtos",
+        "responses": {
+          "200": {
+            "description": "Lista de categorias retornada com sucesso."
+          }
+        }
+      },
+      "post": {
+        "summary": "Adiciona uma categoria de produto",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "NO_CATEGORIA": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "NO_CATEGORIA"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Categoria adicionada com sucesso."
+          }
+        }
+      }
+    },
+    "/products_cat/{id}": {
+      "get": {
+        "summary": "Lista uma categoria de produto",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID da categoria"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Categoria retornada com sucesso."
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualiza uma categoria de produto",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID da categoria a ser atualizada"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "NO_CATEGORIA": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "NO_CATEGORIA"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Categoria atualizada com sucesso."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleta uma categoria de produto",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID da categoria a ser deletada"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Categoria deletada com sucesso."
+          }
+        }
+      }
+    },
+    "/products_siz": {
+      "get": {
+        "summary": "Lista todos os tamanhos de produtos",
+        "responses": {
+          "200": {
+            "description": "Lista de tamanhos retornada com sucesso."
+          }
+        }
+      },
+      "post": {
+        "summary": "Adiciona um tamanho de produto",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "NO_TAMANHO": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "NO_TAMANHO"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Tamanho adicionado com sucesso."
+          }
+        }
+      }
+    },
+    "/products_siz/{id}": {
+      "get": {
+        "summary": "Lista um tamanho de produto",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do tamanho"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tamanho retornado com sucesso."
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualiza um tamanho de produto",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do tamanho a ser atualizado"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "NO_TAMANHO": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "NO_TAMANHO"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tamanho atualizado com sucesso."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleta um tamanho de produto",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do tamanho a ser deletado"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Tamanho deletado com sucesso."
+          }
+        }
+      }
+    },
+    "/estoque": {
+      "get": {
+        "summary": "Lista todos os itens em estoque",
+        "responses": {
+          "200": {
+            "description": "Lista de itens em estoque retornada com sucesso."
+          }
+        }
+      },
+      "post": {
+        "summary": "Adiciona um item ao estoque",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "SQ_PRODUTO": {
+                    "type": "integer"
+                  },
+                  "SQ_TAMANHO_PRODUTO": {
+                    "type": "integer"
+                  },
+                  "QTD_PRODUTO": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "SQ_PRODUTO",
+                  "SQ_TAMANHO_PRODUTO",
+                  "QTD_PRODUTO"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Item adicionado ao estoque com sucesso."
+          }
+        }
+      }
+    },
+    "/estoque/{id}": {
+      "get": {
+        "summary": "Lista um item no estoque",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do item no estoque"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Item em estoque retornado com sucesso."
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualiza um item no estoque",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do item em estoque a ser atualizado"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "SQ_PRODUTO": {
+                    "type": "integer"
+                  },
+                  "SQ_TAMANHO_PRODUTO": {
+                    "type": "integer"
+                  },
+                  "QTD_PRODUTO": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "SQ_PRODUTO",
+                  "SQ_TAMANHO_PRODUTO",
+                  "QTD_PRODUTO"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Item em estoque atualizado com sucesso."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleta um item no estoque",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do item em estoque a ser deletado"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Item em estoque deletado com sucesso."
+          }
+        }
+      }
+    },
+    "/register": {
+      "post": {
+        "summary": "Adiciona um novo usuário",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "NO_USUARIO": {
+                    "type": "string"
+                  },
+                  "EMAIL_USUARIO": {
+                    "type": "string"
+                  },
+                  "SENHA_USUARIO": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "NO_USUARIO",
+                  "EMAIL_USUARIO",
+                  "SENHA_USUARIO"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Usuário registrado com sucesso."
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "summary": "Lista todos os usuários",
+        "responses": {
+          "200": {
+            "description": "Lista de usuários retornada com sucesso."
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "summary": "Lista um usuário",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do usuário"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário retornado com sucesso."
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualiza um usuário",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do usuário a ser atualizado"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "NO_USUARIO": {
+                    "type": "string"
+                  },
+                  "EMAIL_USUARIO": {
+                    "type": "string"
+                  },
+                  "ST_USUARIO": {
+                    "type": "integer"
+                  },
+                  "TP_USUARIO": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "NO_USUARIO",
+                  "EMAIL_USUARIO",
+                  "ST_USUARIO",
+                  "TP_USUARIO"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Usuário atualizado com sucesso."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleta um usuário",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do usuário a ser deletado"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Usuário deletado com sucesso."
+          }
+        }
+      }
+    }
+  }
+}
