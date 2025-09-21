@@ -130,6 +130,35 @@ BODY:
 -deleta um tamanho de produto
 DELETE: http://localhost:3000/api/products_siz/[id]
 
+**---- estoque ----**
+
+-lista todos os itens em estoque
+GET: http://localhost:3000/api/estoque
+
+-adiciona um item ao estoque
+POST: http://localhost:3000/api/estoque
+BODY:
+{
+    SQ_PRODUTO         
+    SQ_TAMANHO_PRODUTO
+    QTD_PRODUTO  
+}
+
+-lista um item no estoque
+GET: http://localhost:3000/api/estoque/[id]
+
+-atualiza um item no estoque
+PUT: http://localhost:3000/api/estoque/[id]
+BODY:
+{
+    SQ_PRODUTO         
+    SQ_TAMANHO_PRODUTO
+    QTD_PRODUTO
+}
+
+-deleta um item no estoque
+DELETE: http://localhost:3000/api/estoque/[id]
+
 **---- register ----**
 
 -adiciona um usuário novo

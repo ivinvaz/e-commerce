@@ -63,6 +63,8 @@ export async function POST(req: NextRequest){
             },
         });
 
+        if(!existeUsuario) return NextResponse.json({message:'Usuário não existe existe'},{status:400});
+
         //cria o corpo da requisicao de novo usuario
         const novoCarrinho = await prisma.tB_CARRINHO.create({
             data: {
