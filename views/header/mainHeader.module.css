@@ -1,0 +1,106 @@
+.headerContainer {
+  z-index: 9999;
+  position: sticky;
+  top: 0;     
+  background-color: #fff; 
+  padding: 1rem 2rem;
+  border-bottom: 1px solid black;
+}
+
+.itensTablist{
+  
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.itensTab{
+  white-space: nowrap; 
+  font-weight:600;
+  letter-spacing: 2px;
+  padding-bottom: 0.3rem;
+  color: #000000;
+}
+
+
+.tab1 {
+  position: absolute;
+  top: 102%;
+  left: 12.7vw;
+  width: fit-content;
+  min-width: 10vw;
+  width: 10vw;
+  background-color: #ff891b;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 999; 
+  display: none; 
+  flex-direction: column;
+  padding: 1rem 2rem;
+}
+
+.tab2{
+  position: absolute;
+  top: 102%; 
+  left: 24.4vw;
+  width: fit-content;
+  min-width: 10vw;
+  background-color: #ff891b;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 999; 
+  display: none; 
+  flex-direction: column;
+  padding: 1rem 2rem;
+}
+
+.tab3{
+  position: absolute;
+  top: 102%; 
+  left: 35.7vw;
+  width: fit-content;
+  min-width: 10vw;
+  background-color: #ff891b;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 999; 
+  display: none; 
+  flex-direction: column;
+  padding: 1rem 2rem;
+}
+
+.tabUser{
+  position: absolute;
+  top: 102%; 
+  right: 11%;
+  width: fit-content;
+  min-width: 10vw;
+  background-color: #ff891b;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 999; 
+  display: none; 
+  flex-direction: column;
+  padding: 1rem 2rem;
+}
+
+
+.headerNav {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;         
+}
+
+.headerListItens,
+.headerListSet {
+  display: flex;
+  gap: 10rem; 
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-right: 15%;
+  margin-left: 15%;
+}
+
+.headerListItens a,
+.headerListSet a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: 500;
+}
