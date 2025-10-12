@@ -37,16 +37,16 @@ export default function MainHeader() {
 
   return (
     <>
-        <div className={styles.headerContainer}>
+        <div className={styles.headerContainer} id='topo'>
           <nav className={styles.headerNav}>
               <ul className={styles.headerListItens}>
-                <li><a style={{fontWeight:'bold'}} className={"itens1"} onClick={handleAbrirModal} href="../roupas/roupas.tsx">Roupas</a></li>
-                <li><a style={{fontWeight:'bold'}} className={"itens2"} onClick={handleAbrirModal} href="../colecoes/colecoes.tsx">Coleções</a></li>
-                <li><a style={{fontWeight:'bold'}} className={"itens3"} onClick={handleAbrirModal} href="../sobre/sobre.tsx">Sobre</a></li>
+                <li><a style={{fontWeight:'bold', fontSize:"30px"}} className={"itens1"} onClick={handleAbrirModal} href="../roupas/roupas.tsx">Roupas</a></li>
+                <li><a style={{fontWeight:'bold', fontSize:"30px"}} className={"itens2"} onClick={handleAbrirModal} href="../colecoes/colecoes.tsx">Coleções</a></li>
+                <li><a style={{fontWeight:'bold', fontSize:"30px"}} className={"itens3"} onClick={handleAbrirModal} href="../sobre/sobre.tsx">Sobre</a></li>
               </ul>
               <ul className={styles.headerListSet}>
-                <li><a href="" className={"perfilItem"}><ShoppingCart width={25} height={25} strokeWidth={2}/></a></li>
-                <li><a href="" className={"perfilItem"} onClick={handleAbrirModal}><CircleUserRound width={25} height={25} strokeWidth={2}/></a></li>
+                <li><a href="" className={"perfilItem"}><ShoppingCart width={35} height={35} strokeWidth={2}/></a></li>
+                <li><a href="" className={"perfilItem"} onClick={handleAbrirModal}><CircleUserRound width={35} height={35} strokeWidth={2}/></a></li>
               </ul>
           </nav>
           <div id='tabitens1' className={styles.tab1} >
@@ -82,6 +82,11 @@ export default function MainHeader() {
               <li className={styles.itensTab}>Sair</li>
             </ul>
           </div>
+        </div>
+        <div className={styles.grad}>
+          <a href="#topo">
+            <ChevronUp style={{ display: 'block', margin: '0 auto' }} strokeWidth={4} width={45} height={45}/>
+          </a>
         </div>
 
     </>

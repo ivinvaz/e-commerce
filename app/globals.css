@@ -40,3 +40,7 @@ a {
     color-scheme: dark;
   }
 }
+
+::-webkit-scrollbar {
+  width:0px; 
+}

@@ -7,6 +7,16 @@
   border-bottom: 1px solid black;
 }
 
+.grad{
+  z-index: 9999;
+  position: fixed;
+  width: 100%;
+  bottom: 0;     
+  height: 100px;
+  background: linear-gradient(to top, white,rgba(255, 255, 255, 0.205), transparent);
+  padding: 1rem 2rem;
+}
+
 .itensTablist{
   
   list-style: none;
